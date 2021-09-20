@@ -3,7 +3,7 @@ Major Project of B.Tech final year Students in a collaborative Environment.<br>
 
 ## Team Members: <br>
 * Aastha Agarwal - **Team Lead & UI/UX**
-* Khushi Sharma - **FrontEnd**
+* Khushi Sharma - **FrontEnd & Documentation**
 * Praful Sharma - **Backend**
 * Shivendu Sharma - **Backend**
 
