@@ -1,26 +1,9 @@
 {% extends 'base/main.html' %}
 {% load static %}
 {% block homepage %}
+{% include 'base/navbar.html' %}
 
-    <div class="navbar">
-        <div class="logo">
-            <h1>DocConnect</h1>
-        </div>
-
-        <ul id="nav-links-1">
-            <li><a href="{% url 'home' %}">home</a></li>
-            <li><a href="#">about</a></li>
-            <p>|</p>
-            <li><a href="#">get in touch</a></li>
-        </ul>
-
-        <ul id="nav-links-2">
-            <li><a href="#">login</a></li>
-            <p>|</p>
-            <li><a href="#">sign up</a></li>
-        </ul>
-    </div>
-
+    <script>document.title = "My Homepage";</script>
     <section class="section1">
         <div class="intro-wrapper">
             <img class="img-logo" src="{% static '/img/logo.png' %}" alt="logo">
