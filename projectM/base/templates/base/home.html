@@ -1,0 +1,107 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block homepage %}
+
+    <div class="navbar">
+        <div class="logo">
+            <h1>DocConnect</h1>
+        </div>
+
+        <ul id="nav-links-1">
+            <li><a href="{% url 'home' %}">home</a></li>
+            <li><a href="#">about</a></li>
+            <p>|</p>
+            <li><a href="#">get in touch</a></li>
+        </ul>
+
+        <ul id="nav-links-2">
+            <li><a href="#">login</a></li>
+            <p>|</p>
+            <li><a href="#">sign up</a></li>
+        </ul>
+    </div>
+
+    <section class="section1">
+        <div class="intro-wrapper">
+            <img class="img-logo" src="{% static '/img/logo.png' %}" alt="logo">
+            <div class="intro">
+                <h1>DocConnect</h1>
+                <hr>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet animi asperiores consequatur
+                    cum cupiditate dignissimos eaque incidunt iste itaque laudantium maiores numquam perspiciatis
+                    provident quos tempora unde velit, voluptatibus?</p>
+            </div>
+        </div>
+
+        <div class="about-wrapper">
+            <div class="left-box">
+                <h1>About us</h1>
+                <hr>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aut deleniti doloribus eum
+                    expedita, fuga, iure laboriosam laborum maxime minima minus nesciunt nobis non, obcaecati pariatur
+                    perspiciatis quasi quod vel.
+
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad atque deleniti distinctio,
+                    dolore ducimus eaque earum eos eveniet excepturi ipsam quasi reiciendis rerum saepe sunt. Ad aliquam
+                    asperiores nam.
+                </p>
+                <br>
+                <p>To know more about us <a href="#">click here.</a></p>
+            </div>
+
+            <div class="right-box">
+                <h2>Check out Results from our Latest AI
+                    Algorithms within seconds.</h2>
+                <img src="{% static '/img/sample.png' %}" alt="showcase">
+            </div>
+        </div>
+
+    </section>
+
+    <section class="section2">
+        <div class="contact-wrapper">
+
+            <div class="contact-left">
+                <h1>Having Doubts?</h1>
+                <p>Feel free to ask us!</p>
+            </div>
+
+            <div class="contact-right">
+                <form action="" method="post" id="contact-form">
+                    {% csrf_token %}
+
+                    <label>Name</label>
+                    <input required class="input-field" type="text" name="name">
+
+                    <label>Subject</label>
+                    <input required class="input-field" type="text" name="subject">
+
+                    <label>Email</label>
+                    <input required class="input-field" type="text" name="email">
+
+                    <label>Message</label>
+                    <textarea required class="input-field" name="message"></textarea>
+
+                    <input id="submit-btn" type="submit" value="Send">
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    {% ifequal error "no" %}
+        <script>
+            alert("Your Query Accepted Successfully, We'll reach you as soon as possible!");
+            window.location = ('{% url 'home' %}');
+        </script>
+    {% endifequal %}
+
+
+    {% ifequal error "yes" %}
+        <script>
+            alert('Something went wrong,Try Again');
+            window.location = ('{% url 'home' %}')
+        </script>
+    {% endifequal %}
+
+{% endblock %}
